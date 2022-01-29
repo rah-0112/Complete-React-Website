@@ -1,6 +1,5 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
-import { IoIosPlay } from 'react-icons/io';
+import styled from 'styled-components';
 
 import CoreFeature from '../assets/core-feature.png';
 import shapePattern from '../assets/shape-pattern2.png';
@@ -19,16 +18,6 @@ display: flex;
 flex-direction: row-reverse;
 gap: 10vh;
 margin: 8vw 10vw;
-`
-const scale = keyframes`
-from {
-    transform: scale(1);
-    opacity: 1;
-}
-to {
-    transform: scale(3);
-    opacity: 0;
-}
 `
 const Video = styled.div`
 position: relative;

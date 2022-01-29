@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Carousel from 'react-multi-carousel';
 import { IoIosArrowRoundBack, IoIosArrowRoundForward } from 'react-icons/io';
 import { FaStar } from 'react-icons/fa';
 
@@ -8,6 +7,8 @@ import Avatar1 from '../assets/testimonial/avatar1.png';
 import Avatar2 from '../assets/testimonial/avatar2.png';
 import Avatar3 from '../assets/testimonial/avatar3.png';
 import Avatar4 from '../assets/testimonial/avatar4.png';
+
+const Carousel = React.lazy(() => import('react-multi-carousel'));
 
 const data = [
     {

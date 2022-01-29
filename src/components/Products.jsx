@@ -45,6 +45,7 @@ display: flex;
 flex-direction: column;
 align-items: center;
 gap: 5vh;
+margin-top: 3vw;
 `
 const Title = styled.div`
 width: 100vw;

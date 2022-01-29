@@ -219,6 +219,7 @@ const packages = {
 const Container = styled.div`
 display: flex;
 flex-direction: column;
+margin-top: 10vh;
 `
 const Title = styled.div`
 width: 100vw;
@@ -400,14 +401,17 @@ flex-direction: column;
 align-items: center;
 gap: 1rem;
 &>:nth-child(1){
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   cursor: pointer;
-  
   font-size: 1.1rem;
   border-radius: 2rem;
   padding: 12px 24px;
   color: #fff;
   background-color: #f50056;
-  border: 2px solid #f50056;
   transition: all 0.3s ease;
   &:hover{
     box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.2);
@@ -426,23 +430,6 @@ gap: 1rem;
 }
 
 `
-const responsive = {
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 3,
-    draggable: false,
-  },
-  tablet: {
-    breakpoint: { max: 1023, min: 640 },
-    items: 2,
-    draggable: true,
-  },
-  mobile: {
-    breakpoint: { max: 639, min: 0 },
-    items: 1,
-    draggable: true,
-  },
-};
 
 const Card = (props) => {
     const { data: {
@@ -479,8 +466,6 @@ const Card = (props) => {
       </CardContainer>
     );
 } 
-
-
 
 const Pricing = () => {
   const { monthly, annual } = packages;

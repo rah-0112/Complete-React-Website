@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-scroll'; 
 
 import logo from '../assets/icons8-bbb.svg';
 
 const data = {
   menuItem: [
     {
-      path: '/',
+      path: 'home',
       label: 'Home',
     },
     {
@@ -55,6 +56,10 @@ justify-content: center;
 &>*{
   padding: 0 1rem;
   padding-bottom: 1.5rem;
+  cursor: pointer;
+  &:hover{
+    color: #f50056;
+  }
 }
 `
 const Copy= styled.div`
@@ -73,7 +78,16 @@ const Footer = () => {
       <Items>
         {data.menuItem.map((item) =>(
           <span key={item.id}>
+            <Link
+          activeClass="active"
+          to={item.path}
+          spy={true}
+          smooth={true}
+          offset={-150}
+          duration={500}
+          >
             {item.label}
+            </Link>
           </span>
         ))}
       </Items>

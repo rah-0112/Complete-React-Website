@@ -35,14 +35,14 @@ const data = [
 const Container = styled.div`
 height: 80vh;
 width: 100vw;
-margin: 6vw 0;
+margin-bottom: 6vw;
 display: flex;
 flex-direction: column;
 gap: 0;
 background: url(${Pattern});
 background-size: cover;
 background-position: center center;
-background-color: #f50056;
+background-color: #EA3A60;
 background-repeat: no-repeat;
 position: relative;
 `
