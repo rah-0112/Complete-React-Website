@@ -75,7 +75,6 @@ mobile: {
     slidesToSlide: 1, // optional, default to 1.
 },
 };
-
 const Buttons = styled.div`
 display: flex;
 flex-direction: row;
@@ -104,7 +103,6 @@ const ButtonGroup = ({next, previous}) => (
         </Buttons>
     </div>
 )
-
 const carouselParams = {
 additionalTransfrom:0,
 arrows:false,
@@ -167,7 +165,14 @@ const Title = styled.div`
     letter-spacing: 2px;
     }
     &>:nth-child(2){
-    margin-top: 0;
+        text-align: center;
+        @media (max-width: 600px) {
+            font-size: 26px;
+        }
+        @media (max-width: 450px) {
+            font-size: 20px;
+        }
+        margin-top: 0;
     }
 `
 const Container = styled.div`
@@ -179,10 +184,28 @@ align-items: center;
 gap: 5vh;
 &>.carousel-container{
     width: 80%;
+    @media (max-width: 639px){
+        width: 70%;
+    }
+    @media (max-width: 500px){
+        width: 75%;
+    }
+    @media (max-width: 400px){
+        width: 80%;
+    }
+    @media (max-width: 380px){
+        width: 85%;
+    }
+    @media (max-width: 320px){
+        width: 80%;
+    }
+    @media (max-width: 310px){
+        width: 85%;
+    }
 }
 `
 const Review = styled.div`
-height: 40vh;
+height: 45vh;
 width: 15vw;
 display: flex;
 flex-direction: column;
@@ -203,15 +226,59 @@ padding: 4rem;
     display: flex;
     flex-direction: row;
     gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    @media (max-width: 350px){
+        gap: 1.5rem;
+        width: 100%;
+    }
     &>:nth-child(2) {
         display: flex;
         flex-direction: column;
         font-weight: 500;
         gap: 0.3rem;
+        @media (max-width: 350px){
+            font-size: 14px;
+        }
         &>:nth-child(2) {
             color: #f50056;
+            @media (max-width: 350px){
+                font-size: 14px;
+            }
         }
     }
+}
+
+@media (max-width: 1300px){
+    gap: 1rem;
+}
+@media (max-width: 1200px){
+    width: calc(8vw + 5rem);
+}
+@media (max-width: 1150px){
+    width: calc(6vw + 5rem);
+}
+@media (max-width: 1024px){
+    width: calc(10vw + 5rem);
+}
+@media (max-width: 768px){
+    width: 20vw;
+}
+@media (max-width: 700px){
+    width: 18vw;
+}
+@media (max-width: 639px){
+    width: 40vw;
+    gap: 1.5rem;
+}
+@media (max-width: 350px){
+    width: 35vw;
+    gap: 1rem;
+}
+@media (max-width: 320px){
+    width: 32vw;
+    gap: 1rem;
 }
 `
 const ReviewTitle = styled.div`
@@ -220,21 +287,35 @@ const ReviewTitle = styled.div`
 `
 const Description = styled.div`
     line-height: 1.6em;
-    color: rgba(0, 0, 0, 0.8);
+    color: rgba(0, 0, 0, 0.7);
+    @media (max-width: 1150px){
+        line-height: 1.4em;
+        font-size: 14px;
+    }
+    @media (max-width: 639px){
+        line-height: 1.6em;
+        font-size: 17px;
+    }
+    @media (max-width: 500px){
+        line-height: 1.4em;
+        font-size: 15px;
+    }
+    @media (max-width: 320px){
+        line-height: 1.2em;
+        font-size: 13px;
+    }
 `
 const Avatar = styled.div`
 &>*{
     display: flex;
     border: 2px solid #f50056;
     border-radius: 50%;
-    flex:1;
+    flex: 1;
 }
 `
 const Name = styled.div`
-
 `
 const Designation = styled.div`
-
 `
 
 const Testimonial = () => {

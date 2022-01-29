@@ -1,7 +1,6 @@
 import MobileDrawer from './mobile-drawer';
 import menuItems from './header.data';
 import styled, { keyframes } from 'styled-components';
-import logo from '../../assets/icons8-bbb.svg';
 import { Link } from 'react-scroll';
 
 const positionAnim = keyframes`
@@ -106,7 +105,6 @@ export default function Header({ className }) {
   return (
         <Container className={className}>
           <Logo>
-            <img src={logo} alt="logo"></img>
             <span>Startup</span>
           </Logo>
           <Menu>

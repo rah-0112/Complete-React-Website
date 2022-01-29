@@ -14,7 +14,7 @@ const data = [
     },
     {
       id: 2,
-      title: 'Assembly retrieves funds from your account',
+      title: 'Assembly retrieves funds from us',
       text:
         'Get your blood tests delivered at home collect a sample from the your blood tests.',
     },
@@ -34,30 +34,70 @@ const data = [
 
 const Container = styled.div`
 height: 80vh;
-width: 100vw;
+width: calc(60vw+ 20rem);
 margin-bottom: 6vw;
 display: flex;
 flex-direction: column;
-gap: 0;
 background: url(${Pattern});
 background-size: cover;
 background-position: center center;
 background-color: #EA3A60;
 background-repeat: no-repeat;
 position: relative;
+@media (max-width: 1300px) {
+  height: 90vh;
+}
+@media (max-width: 800px) {
+  height: calc(90vh + 15rem);
+}
+@media (max-width: 600px) {
+  height: calc(110vh + 20rem);
+}
+@media (max-width: 426px) {
+  height: calc(110vh + 30rem);
+}
+@media (max-width: 400px) {
+  height: calc(100vh + 20rem);
+}
+@media (max-width: 340px) {
+  height: calc(110vh + 30rem);
+}
 `
 const Flex = styled.div`
 display: flex;
 flex-direction: row;
+align-items: center;
+justify-content: center;
 gap: 3vw;
-width: 100vw;
-padding: 5vh 10vw;
+width: calc(60vw+ 20rem);
+margin: 5vh 10vw;
+@media (max-width: 1300px) {
+  margin: 5vh 5vw;
+}
+@media (max-width: 800px) {
+  flex-wrap: wrap;
+  gap: 2rem;
+}
 `
 const Card = styled.div`
 display: flex;
 flex-direction: column;
 align-items: flex-start;
-width: 18vw;
+width: calc(10vw + 7.5rem);
+@media (max-width: 1300px) {
+  width: calc(10vw + 8rem);
+}
+@media (max-width: 800px) {
+  width: calc(20vw + 8rem);
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 600px) {
+  width: calc(20vw + 20rem);
+}
+@media (max-width: 500px) {
+  width: 100%;
+}
 &>:nth-child(1){
     font-size: 30px;
     background-color: #fff;
@@ -71,10 +111,25 @@ width: 18vw;
     color: #fff;
     font-size: 24px;
     font-weight: 500;
+    @media (max-width: 800px) {
+      text-align: center;
+    }
+    @media (max-width: 600px) {
+      font-size: 25px;
+    }
+    @media (max-width: 400px) {
+        font-size: 20px;
+    }
 }
 &>:nth-child(3){
     color: #fff;
     line-height: 1.8em;
+    @media (max-width: 800px) {
+      text-align: center;
+    }
+    @media (max-width: 600px) {
+      margin: 0;
+    }
 }
 &:nth-of-type(2n-1)::before {
     content: '""';
@@ -86,6 +141,9 @@ width: 18vw;
     position: absolute;
     height: 10vh;
     margin: 0 3rem;
+    @media (max-width: 1024px) {
+      display: none;
+    }
   }
 &:nth-of-type(2n)::before {
     content: '""';
@@ -98,6 +156,9 @@ width: 18vw;
     z-index: 0;
     height: 10vh;
     margin: 8rem 3rem;
+    @media (max-width: 1024px) {
+      display: none;
+    }
 }
 &:last-child::before {
     display: none;
@@ -119,6 +180,20 @@ align-items: center;
 &>:nth-child(2){
   margin-top: 0;
   color: #fff;
+  @media (max-width: 850px) {
+    font-size: 30px;
+    text-align: center;
+    width: 90%;
+  }   
+  @media (max-width: 600px) {
+      font-size: 25px;
+  }
+  @media (max-width: 400px) {
+      font-size: 20px;
+  }
+}
+@media (max-width: 600px) {
+  padding: 0;
 }
 `
 

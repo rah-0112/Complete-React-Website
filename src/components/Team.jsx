@@ -178,9 +178,14 @@ const data = [
 const Container = styled.div`
 display: flex;
 flex-direction: column;
+align-items: center;
+justify-content: center;
 gap: 2rem;
 margin-top: 5vh;
 margin-bottom: 10vh;
+@media (max-width: 500px) {
+  margin-top: 0;
+} 
 `
 const Title = styled.div`
 width: 100vw;
@@ -194,20 +199,51 @@ margin: 0;
   color: #f50056;
   font-weight: 600;
   letter-spacing: 2px;
+  @media (max-width: 450px) {
+    font-size: 12px;
+  }
 }
 &>:nth-child(2){
   margin-top: 0;
+  text-align: center;
+  @media (max-width: 600px) {
+    font-size: 26px;
+  }
+  @media (max-width: 450px) {
+    font-size: 20px;
+  }
 }
 &>:nth-child(3){
   margin-top: 0;
+  text-align: center;
+  @media (max-width: 600px) {
+    font-size: 26px;
+  }
+  @media (max-width: 450px) {
+    font-size: 20px;
+  }
 }
 `
 const Grid = styled.div`
-margin: 0vw 10vw;
+margin: 0 10vw;
 display: grid;
 grid-column-gap: 1vw;
 grid-row-gap: 4vw;
 grid-template-columns: repeat(3, 1fr);
+@media (max-width: 1024px) {
+  margin: 0vw 15vw;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 8vw;
+} 
+@media (max-width: 700px) {
+  grid-column-gap: 2vw;
+  margin: 0vw 5vw;
+} 
+@media (max-width: 500px) {
+  grid-template-columns: repeat(1, 1fr);
+  grid-column-gap: 0;
+  margin: 0vw 5vw;
+} 
 `
 const Card = styled.div`
 height: 35vh;
@@ -223,11 +259,28 @@ transition: ease-in-out 0.4s;
 &:hover{
   box-shadow: 0 4px 10px rgba(39, 83, 123, 0.12);
 }
+@media (max-width: 1024px) {
+  width: 35vw;
+}
+@media (max-width: 700px) {
+  width: 40vw;
+} 
+@media (max-width: 500px) {
+  width: calc(25vw + 10rem);
+} 
 `
 const CardPhoto = styled.div`
 border: 2px solid #f50056;
 border-radius: 50%;
 display: flex;
+&>*{
+  @media (max-width: 700px) {
+    width: 18vw;
+  } 
+  @media (max-width: 500px) {
+    width: 25vw;
+  } 
+}
 `
 const CardTitle = styled.div`
 font-size: 20px;
@@ -236,12 +289,18 @@ transition: color 0.25s;
 ${Card}:hover &{
   color: #f50056;
 }
+@media (max-width: 800px) {
+  font-size: 18px;
+}
 `
 const CardDesignation = styled.div`
 color: rgba(0, 0, 0, 0.7);
 transition: color 0.25s;
 ${Card}:hover &{
   color: #f50056;
+}
+@media (max-width: 800px) {
+  font-size: 16px;
 }
 `
 const CardSocial = styled.div`
@@ -257,6 +316,10 @@ padding: -1rem;
 margin-bottom: -1rem;
 transition: all 0.25s;
 line-height: 0.5rem;
+@media (max-width: 700px) {
+  right: 0.6rem;
+} 
+@media (max-width: 800px) {}
 ${Card}:hover &{
   opacity: 1;
   padding: 0;
@@ -270,7 +333,6 @@ ${Card}:hover &{
   transition: all 0.1s;
   cursor: pointer;
 }
-
 `
 
 const TeamCard = ({ src, altText, title, designation, social }) => {

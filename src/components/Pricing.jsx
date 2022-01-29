@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { IoIosCheckmarkCircle, IoIosCloseCircle } from 'react-icons/io';
+import { IoIosArrowRoundBack, IoIosArrowRoundForward, IoIosCheckmarkCircle, IoIosCloseCircle } from 'react-icons/io';
 import { keyframes } from 'styled-components';
+const Carousel = React.lazy(() => import('react-multi-carousel'));
 
 const packages = {
   monthly: [
@@ -216,6 +217,83 @@ const packages = {
   ],
 };
 
+const responsive = {
+  desktop: {
+      breakpoint: { max: 3000, min: 1619 },
+      items: 4,
+      slidesToSlide: 4, // optional, default to 1.
+  },
+  laptop: {
+      breakpoint: { max: 1619, min: 1024 },
+      items: 3,
+      slidesToSlide: 3, // optional, default to 1.
+  },
+  tablet: {
+      breakpoint: { max: 1024, min: 640 },
+      items: 2,
+      slidesToSlide: 2, // optional, default to 1.
+  },
+  mobile: {
+      breakpoint: { max: 639, min: 0 },
+      items: 1,
+      slidesToSlide: 1, // optional, default to 1.
+  },
+};    
+const Buttonss = styled.div`
+
+  display: none;
+  flex-direction: row;
+  @media (max-width: 1024px) {
+    display: flex;
+  }
+  &>*{
+      background-color: #fff;
+      border: 0px solid;
+      outline: none;
+      font-size: 40px;
+      color: #BBC7D7;
+      cursor: pointer;
+      transition: all 0.25s;
+      &:hover{
+          color: rgba(0, 0, 0, 0.7);
+      }
+  }
+`
+const ButtonGroup = ({next, previous}) => (
+      <div>
+          <Buttonss>
+              <button onClick={previous} aria-label="Previous">
+                  <IoIosArrowRoundBack />
+              </button>
+              <button onClick={next} aria-label="Next">
+                  <IoIosArrowRoundForward />
+              </button>
+          </Buttonss>
+      </div>
+)
+const carouselParams = {
+  additionalTransfrom:0,
+  arrows:false,
+  autoPlaySpeed:3000,
+  centerMode:false,
+  className:"",
+  containerClass:"carousel-container",
+  customButtonGroup: <ButtonGroup />,
+  dotListClass:"",
+  draggable: true,
+  focusOnSelect: false,
+  infinite: false,
+  itemClass:"",
+  keyBoardControl: true,
+  minimumTouchDrag:80,
+  renderButtonGroupOutside: true,
+  renderDotsOutside:false,
+  responsive:responsive,
+  showDots:false,
+  sliderClass:"",
+  slidesToSlide:1,
+}
+
 const Container = styled.div`
 display: flex;
 flex-direction: column;
@@ -235,6 +313,16 @@ align-items: center;
 }
 &>:nth-child(2){
   margin-top: 0;
+  @media (max-width: 850px) {
+    font-size: 30px;
+    text-align: center;
+  }   
+  @media (max-width: 600px) {
+      font-size: 25px;
+  }
+  @media (max-width: 400px) {
+      font-size: 20px;
+  }
 }
 `
 const Buttons = styled.div`
@@ -242,11 +330,15 @@ display: flex;
 align-items: center;
 justify-content: center;
 padding: 1rem 0;
+
 `
 const Wrapper = styled.div`
 display: flex;
 flex-direction: row;
 padding: 0.5rem 0.5rem;
+@media (max-width: 350px) {
+  flex-direction: column;
+} 
 border-radius: 5px;
 background-color: #F7F8FB;
 &>:nth-child(1) {
@@ -280,16 +372,26 @@ background-color: #F7F8FB;
 }
 `
 const Content = styled.div`
-height: 70vh;
+height: 90vh;
 width: 100vw;
 display: flex;
-flex-direction: row;
+flex-direction: column;
 align-items: center;
 justify-content: center;
 gap: 2rem;
 margin-top: 5vh;
 margin-bottom: 12vh;
 transition: all 0.3s;
+&>.carousel-container{
+  width: 80%;
+  @media (max-width: 1024px) {
+    margin-left: 2rem;
+  }
+  @media (max-width: 639px) {
+    margin-left: 0;
+  }
+}
+
 `
 const fade = keyframes`
 from{
@@ -311,7 +413,7 @@ to{
 `
 const CardContainer = styled.div`
 width: 25vw;
-height: 70vh;
+height: 80vh;
 display: flex;
 flex-direction: column;
 align-items: flex-start;
@@ -321,6 +423,24 @@ border: 3px solid #F7F8FB;
 transition: all 0.3s;
 &:hover{
   box-shadow: 0px 4px 25px rgba(38, 78, 118, 0.1);
+}
+@media (max-width: 1300px) {
+  align-items: center;
+}
+@media (max-width: 1024px) {
+  width: 35vw;
+  align-items: center;
+}
+@media (max-width: 639px) {
+  width: calc(40vw + 10rem);
+  height: 65vh;
+}
+@media (max-width: 639px) {
+  margin-left: 0;
+  width: calc(35vw + 10rem);
+}
+@media (max-width: 375px) {
+  width: calc(25vw + 10rem);
 }
 `
 const CardTitle = styled.div`
@@ -349,6 +469,7 @@ animation: ${fade} 0.8s ease-in;
   }
 }
 &>:nth-child(2) {
+  width: 100%;
   font-size: 16px;
   color: rgba(0, 0, 0, 0.7);
 }
@@ -360,12 +481,25 @@ const CardContent= styled.div`
   flex-direction: column;
   gap: 0.8rem;
   margin: 2rem 1rem;
+  @media (max-width: 1200px) {
+    gap: 0.4rem;
+    margin: 1rem 0;
+  }
+  @media (max-width: 1024px) {
+    margin: 1rem 1rem;
+  }
+  @media (max-width: 820px) {
+    margin: 0;
+  }
   &>*{
     animation: ${fade1} 0.7s ease-in;
     padding: 0 1rem;
     display: flex;
     flex-direction: row;
     gap: 1rem;
+    @media (max-width: 820px) {
+      gap: 0.5rem;
+    }
     &>:nth-child(1){
       font-size: 20px;
       color: #f50056;
@@ -378,19 +512,26 @@ const CardContent= styled.div`
 `
 const CardPrice = styled.div`
 animation: ${fade1} 0.9s ease-in;
-margin: 1rem 7rem;
-margin-bottom: 0;
 display: flex;
-flex-direction: row;
 align-items: center;
-gap: 0.2rem;
+justify-content: center;
+width: 90%;
+@media (max-width: 1200px) {
+  margin: 0;
+}
 &>:nth-child(1){
   font-size: 30px;
   font-weight: 600;
+  @media (max-width: 1200px) {
+    font-size: 25px;
+  }
 }
 &>:nth-child(2){
   font-size: 20px;
   color: rgba(0, 0, 0, 0.7);
+  @media (max-width: 1200px) {
+    font-size: 15px;
+  }
 }
 `
 const CardButton = styled.div`
@@ -400,7 +541,14 @@ display: flex;
 flex-direction: column;
 align-items: center;
 gap: 1rem;
+@media (max-width: 1300px) {
+  margin: 1rem 6rem;
+}
+@media (max-width: 700px) {
+  margin: 0.5rem 2rem;
+}
 &>:nth-child(1){
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -417,8 +565,13 @@ gap: 1rem;
     box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.2);
   }
   z-index: 1;
+  @media (max-width: 700px) {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
 }
 &>:nth-child(2){
+  text-align: center;
   cursor: pointer;
   font-size: 16px;
   color: rgba(0, 0, 0, 0.7);
@@ -468,18 +621,23 @@ const Card = (props) => {
 } 
 
 const Pricing = () => {
+
   const { monthly, annual } = packages;
   const [plan, setPlan] = useState({
     pricingPlan: monthly,
     active: 'monthly',
   });
+
   const Render = ({ plan }) => (
     <Content>
-      {plan.pricingPlan.map((item) => (
-        <Card key={item.id} data={item} />
-      ))}
+      <Carousel {...carouselParams}>
+        {plan.pricingPlan.map((item) => (
+          <Card key={item.id} data={item} />
+        ))}
+      </Carousel>
     </Content>
   )
+
   return(
     <Container id='pricing'>
       <Title>

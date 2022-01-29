@@ -2,8 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-scroll'; 
 
-import logo from '../assets/icons8-bbb.svg';
-
 const data = {
   menuItem: [
     {
@@ -53,6 +51,7 @@ const Items = styled.div`
 display: flex;
 align-items: center;
 justify-content: center;
+flex-wrap: wrap;
 &>*{
   padding: 0 1rem;
   padding-bottom: 1.5rem;
@@ -73,7 +72,7 @@ const Footer = () => {
   return(
     <Container>
         <Logo>
-            <img src={logo} alt="logo"></img><span>Startup</span>
+            <span>Startup</span>
         </Logo>
       <Items>
         {data.menuItem.map((item) =>(

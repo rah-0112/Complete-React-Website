@@ -49,9 +49,23 @@ margin: 2vh 0;
 }
 &>:nth-child(2){
   margin-top: 0;
+  text-align: center;
+  @media (max-width: 600px) {
+    font-size: 26px;
+  }
+  @media (max-width: 450px) {
+    font-size: 20px;
+  }
 }
 &>:nth-child(3){
   margin-top: 0;
+  text-align: center;
+  @media (max-width: 600px) {
+    font-size: 26px;
+  }
+  @media (max-width: 450px) {
+    font-size: 20px;
+  }
 }
 `
 const responsive = {
@@ -135,6 +149,24 @@ align-items: center;
 gap: 5vh;
 &>.carousel-container{
     width: 80%;
+    @media (max-width: 639px){
+        width: 70%;
+    }
+    @media (max-width: 500px){
+        width: 75%;
+    }
+    @media (max-width: 400px){
+        width: 80%;
+    }
+    @media (max-width: 380px){
+        width: 85%;
+    }
+    @media (max-width: 320px){
+        width: 80%;
+    }
+    @media (max-width: 310px){
+        width: 85%;
+    }
 }
 `
 const Post = styled.div`
@@ -156,6 +188,40 @@ padding: 4rem;
     box-shadow: 0px 6px 6px rgba(38, 78, 118, 0.1);
 }
 
+@media (max-width: 1300px){
+    gap: 1rem;
+}
+@media (max-width: 1200px){
+    width: calc(8vw + 5rem);
+}
+@media (max-width: 1150px){
+    width: calc(6vw + 5rem);
+}
+@media (max-width: 1024px){
+    width: 23vw;
+}
+@media (max-width: 850px){
+    width: 20vw;
+}
+@media (max-width: 768px){
+    width: 20vw;
+}
+@media (max-width: 700px){
+    width: 18vw;
+}
+@media (max-width: 639px){
+    width: 40vw;
+    gap: 1.5rem;
+}
+@media (max-width: 350px){
+    width: 35vw;
+    gap: 1rem;
+}
+@media (max-width: 320px){
+    width: 32vw;
+    gap: 1rem;
+}
+
 &>:nth-child(3) {
     display: flex;
     flex-direction: row;
@@ -163,15 +229,35 @@ padding: 4rem;
     position: absolute;
     bottom: 0;
     padding: 1rem;
+    @media (max-width: 320px){
+        gap: 4rem;
+    }
 }
 `
 const Picture = styled.div`
 &>*{
-    width: 25vw;
     height: 30vh;
     top: 0;
     left: 0;
     position: absolute;
+    @media (max-width: 1024px){
+        width: 40vw;
+    }
+    @media (max-width: 768px){
+        width: 40vw;
+    }
+    @media (max-width: 700px){
+        width: 40vw;
+    }
+    @media (max-width: 639px){
+        width: 70vw;
+    }
+    @media (max-width: 400px){
+        width: 80vw;
+    }
+    @media (max-width: 320px){
+        width: 90vw;
+    }
 }
 `
 const PostTitle = styled.div`
@@ -187,14 +273,48 @@ cursor: pointer;
 &:hover {
     color: #f50056;
 }
+@media (max-width: 1300px){
+    font-size: 18px;
+    font-weight: 600;
+}
+@media (max-width: 1200px){
+    font-size: 18px;
+    font-weight: 600;
+}
+@media (max-width: 1150px){
+    font-size: 16px;
+}
+@media (max-width: 1024px){
+    font-size: 16px;
+}
+@media (max-width: 700px){
+    width: calc(6vw + 10rem);
+}
+@media (max-width: 639px){
+    font-size: 18px;
+    font-weight: 650;
+}
+@media (max-width: 350px){
+    font-size: 16px;
+    font-weight: 600;
+}
+@media (max-width: 320px){
+    
+}
 `
 const Name = styled.div`
 font-size: 16px;
 color: #f50056;
+@media (max-width: 350px){
+    font-size: 14px;
+}
 `
 const Date = styled.div`
 font-size: 16px;
 color: rgba(0, 0, 0, 0.7);
+@media (max-width: 350px){
+    font-size: 14px;
+}
 `
 
 const Blog = () => {

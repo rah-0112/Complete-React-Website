@@ -8,6 +8,24 @@ const Container = styled.div`
 margin-top: 10vh;
 height: 160vh;
 position: relative;
+@media (min-width: 1200px) {
+  margin-bottom: 10vh;
+}
+@media (max-width: 900px) {
+  height: 140vh;
+}
+@media (max-width: 600px) {
+  height: 130vh;
+}
+@media (max-width: 450px) {
+  height: 120vh;
+}
+@media (max-width: 400px) {
+  height: 110vh;
+}
+@media (max-width: 350px) {
+  height: 100vh;
+}
 `
 const Left = styled.div`
 .img{
@@ -134,6 +152,9 @@ top: 120vh;
 @media (max-width: 350px) {
   top: 75vh;
   left: 100%;
+}
+@media (max-width: 320px) {
+  left: 105%;
 }
 `
 const Main = styled.div`

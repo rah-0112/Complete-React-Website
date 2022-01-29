@@ -44,6 +44,18 @@ const data = [
 
 const Container = styled.div`
 margin: 2vw 20vw;
+@media (max-width: 1200px) {
+  margin: 2vw 10vw;
+}
+@media (max-width: 800px) {
+  margin: 2vw 6vw;
+}
+@media (max-width: 700px) {
+  margin: 2vw 10vw;
+}
+@media (max-width: 320px) {
+  margin: 2vw 5vw;
+}
 `
 const Title = styled.div`
 width: 100vw;
@@ -56,17 +68,30 @@ align-items: center;
   color: #f50056;
   font-weight: 500;
   letter-spacing: 2px;
+  @media (max-width: 450px) {
+    font-size: 12px;
+  }
 }
 &>:nth-child(2){
   margin-top: 0;
+  text-align: center;
+  @media (max-width: 600px) {
+    font-size: 30px;
+  }
+  @media (max-width: 450px) {
+    font-size: 23px;
+  }
 }
 `
 const Grid = styled.div`
 display: grid;
 align-items: center;
 grid-template-columns: repeat(2, 1fr);
-grid-column-gap: 5vw;
+grid-gap: 5vw;
 margin-top: 1vh;
+@media (max-width: 700px) {
+  grid-template-columns: repeat(1, 1fr);
+}
 `
 const Text = styled.div`
 display: flex;

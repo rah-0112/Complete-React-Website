@@ -13,6 +13,13 @@ display: flex;
 flex-direction: row;
 align-items: center;
 justify-content: space-evenly;
+gap: 2rem;
+flex-wrap: wrap;
+@media (max-width: 400px) {
+  flex: 1 1 150px;
+  margin: 0 15vw;
+  height: 30vh;
+}
 `
 const Icon = styled.div``
 
@@ -22,8 +29,8 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-&>:nth-child(2){
-  margin-top: 0;
+&>:nth-child(1){
+  margin: 5vh 0;
 }
 `
 
